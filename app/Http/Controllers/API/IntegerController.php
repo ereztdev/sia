@@ -9,60 +9,6 @@ use Illuminate\Support\Facades\Validator;
 
 class IntegerController extends Controller
 {
-//    /**
-//     * Display a listing of the resource.
-//     *
-//     * @return \Illuminate\Http\Response
-//     */
-//    public function index()
-//    {
-//        //
-//    }
-//
-//    /**
-//     * Store a newly created resource in storage.
-//     *
-//     * @param  \Illuminate\Http\Request  $request
-//     * @return \Illuminate\Http\Response
-//     */
-//    public function store(Request $request)
-//    {
-//        //
-//    }
-//
-//    /**
-//     * Display the specified resource.
-//     *
-//     * @param  \App\Integer  $integer
-//     * @return \Illuminate\Http\Response
-//     */
-//    public function show(Integer $integer)
-//    {
-//        //
-//    }
-//
-//    /**
-//     * Update the specified resource in storage.
-//     *
-//     * @param  \Illuminate\Http\Request  $request
-//     * @param  \App\Integer  $integer
-//     * @return \Illuminate\Http\Response
-//     */
-//    public function update(Request $request, Integer $integer)
-//    {
-//        //
-//    }
-//
-//    /**
-//     * Remove the specified resource from storage.
-//     *
-//     * @param  \App\Integer  $integer
-//     * @return \Illuminate\Http\Response
-//     */
-//    public function destroy(Integer $integer)
-//    {
-//        //
-//    }
     /**
      * get the current integer (always latest)
      * @param Request $request
@@ -82,12 +28,8 @@ class IntegerController extends Controller
     public function next(Request $request)
     {
         $currentInteger = Integer::latest()->first();
-        $currentInteger->is_current = 0;
-        $currentInteger->save();
-
         $nextInteger = Integer::create([
-            'integer' => $currentInteger->integer + 1,
-            'is_current' => 1
+            'integer' => $currentInteger->integer + 1
         ]);
         return $this->sendResponse($nextInteger, 'success');
     }
@@ -110,14 +52,10 @@ class IntegerController extends Controller
             return $this->sendError('Validation Error.', $validator->errors());
         }
 
-        $currentInteger = Integer::latest()->first();
-        $currentInteger->is_current = 0;
-        $currentInteger->save();
-
         $updatedInteger = Integer::create([
-            'integer' => $request->updated_integer,
-            'is_current' => 1
+            'integer' => $request->updated_integer
         ]);
+
         return $this->sendResponse($updatedInteger, 'success');
     }
 
