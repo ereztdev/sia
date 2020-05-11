@@ -1,23 +1,9 @@
 @extends('layouts.app')
 
 @section('content')
-<div class="container">
-    <div class="row justify-content-center">
-        <div class="col-md-12">
-            <div class="card">
-                <div class="card-header">Notifications</div>
-
-                <div class="card-body">
-                    @if (session('status'))
-                        <div class="alert alert-success" role="alert">
-                            {{ session('status') }}
-                        </div>
-                    @endif
-
-                    successful login
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
+<h1 class="text-lg-center text-white text-capitalize">Welcome to SIA, {{$userName}}</h1>
+    <app/>
+@endsection
+@section('scripts')
+    <script>var accessToken = "{{$accessToken}}"</script>
 @endsection
