@@ -15,3 +15,7 @@ use Illuminate\Support\Facades\Route;
 */
 Route::post('/register', 'API\AuthController@register');
 Route::post('/login', 'API\AuthController@login');
+
+Route::post('/current', 'API\IntegerController@current')->middleware('auth:api');
+Route::post('/next', 'API\IntegerController@next')->middleware('auth:api');
+Route::post('/update', 'API\IntegerController@update')->middleware('auth:api');

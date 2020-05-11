@@ -66,6 +66,7 @@
     <body>
         <div class="flex-center position-ref full-height">
             <div class="content">
+                <h1>SIA</h1>
                 <h2 style="text-transform: capitalize">The straightforward Integer API</h2>
                 @if (Route::has('login'))
                     <div class="links">
