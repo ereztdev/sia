@@ -20,3 +20,9 @@ Route::get('/', function () {
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+
+Route::get('auth/google', 'Auth\GoogleController@redirectToGoogle');
+Route::get('auth/google/callback', 'Auth\GoogleController@handleGoogleCallback');
+
+Route::get('auth/github', 'Auth\LoginController@redirectToProvider');
+Route::get('auth/github/callback', 'Auth\LoginController@handleProviderCallback');

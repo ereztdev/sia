@@ -1,5 +1,7 @@
 @extends('layouts.app')
-
+@section('css_links')
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+@endsection
 @section('content')
 <div class="container">
     <div class="row justify-content-center">
@@ -65,6 +67,12 @@
                             </div>
                         </div>
                     </form>
+                    <div class="social-logins text-center">
+                        <h1 class="my-4">-OR-</h1>
+                        <h4 class="text-capitalize mb-3">login via social</h4>
+                        <a class="mx-3" href="auth/google" style="color:#db3236 "><i class="fa fa-google fa-3x"></i></a>
+                        <a class="mx-3" href="auth/github" style="color:#000000 "><i class="fa fa-github fa-3x"></i></a>
+                    </div>
                 </div>
             </div>
         </div>

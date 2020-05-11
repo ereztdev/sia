@@ -8,8 +8,9 @@
 
         <!-- Fonts -->
         <link href="https://fonts.googleapis.com/css?family=Nunito:200,600" rel="stylesheet">
-
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
         <!-- Styles -->
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
         <style>
             html, body {
                 background-color: #fff;
@@ -57,10 +58,15 @@
                 text-decoration: none;
                 text-transform: uppercase;
             }
-
             .m-b-md {
                 margin-bottom: 30px;
             }
+            .social-logins a{
+                border: none;
+                margin: 0 10px;
+            }
+
+
         </style>
     </head>
     <body>
@@ -69,9 +75,9 @@
                 <h1>SIA</h1>
                 <h2 style="text-transform: capitalize">The straightforward Integer API</h2>
                 @if (Route::has('login'))
-                    <div class="links">
+                    <div class="links my-5">
                         @auth
-                            <a href="{{ url('/home') }}">Home</a>
+                            <a href="{{ url('/home') }}">Go to Dashboard</a>
                         @else
                             <a href="{{ route('login') }}">Login</a>
 
@@ -80,6 +86,15 @@
                             @endif
                         @endauth
                     </div>
+                    @auth
+                    @else
+                    <div class="social-logins">
+                        <h4 class="text-capitalize">additional login options via social</h4>
+                        <a href="auth/google" style="color:#db3236"><i class="fa fa-google fa-3x"></i></a>
+                        <a href="auth/github" style="color:#000000"><i class="fa fa-github fa-3x"></i></a>
+                    </div>
+                    @endauth
+
                 @endif
             </div>
         </div>
