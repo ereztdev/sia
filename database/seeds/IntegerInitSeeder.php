@@ -14,7 +14,6 @@ class IntegerInitSeeder extends Seeder
     {
         Integer::create([
             'integer' => 1,
-            'is_current' => 1
         ]);
     }
 }
