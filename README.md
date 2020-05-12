@@ -1,11 +1,11 @@
+![](https://github.com/ereztdev/sia/blob/master/public/imgs/sia_splash.png?raw=true)
 # SIA
 ### Straightforward Integer API
-![](https://github.com/ereztdev/sia/blob/master/public/imgs/sia_splash.png?raw=true)
 
 ---
 
 #### Location of deployed application
-##[Live Demo]( http://ec2-18-188-204-237.us-east-2.compute.amazonaws.com/)
+## [Live Demo]( http://ec2-18-188-204-237.us-east-2.compute.amazonaws.com/)
 
 ---
 
