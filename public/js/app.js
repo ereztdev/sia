@@ -2032,7 +2032,7 @@ __webpack_require__.r(__webpack_exports__);
 
       var updated_integer = $("#updateInteger").val();
 
-      if (updated_integer.trim() === '') {
+      if (updated_integer.trim() === '' || !Number.isInteger(updated_integer)) {
         this.isError = true;
         this.alertMessage = "Please insert an integer before updating";
         return this.animateAlert();
