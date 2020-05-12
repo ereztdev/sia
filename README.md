@@ -35,3 +35,106 @@ Run `php artisan passport:install` to create the keymakers.
 - Install Node dependencies, run `npm install`.
 - To finish up, build the Vue.js instance, run `npm run dev` for dev environment, or `npm run prod` for production.
 - run `php artisan serve` and now you can access the webapp at `http://localhost:8000`.
+
+# Endpoints
+## USER MODEL RELATED
+#### **POST** `api/register`
+> Registers the user via the API
+
+**Attributes To Send**
+
+- name <*string*>
+- email <*string|email*>
+- password <*string*>
+- password_confirmation <*string*>
+
+#### Returns JSON Object
+```
+{
+    "user": {
+        "name": string,
+        "email": string,
+        "updated_at": string,
+        "created_at": string,
+        "id": int
+    },
+    "access_token": string
+}
+```
+#### **POST** `api/login`
+> Login the user via the API
+
+**Attributes To Send**
+- email <*string|email*>
+- password <*string*>
+#### Returns JSON Object
+```
+{
+    "user": {
+        "name": string,
+        "email": string,
+        "email_verified_at": string,
+        "google_id": string,
+        "github_id": string,
+        "updated_at": string,
+        "created_at": string,
+    },
+    "access_token": string
+}
+```
+## INTEGER MODEL RELATED
+#### **POST** `api/current`
+>Returns the current integer
+>
+**Attributes To Send**
+- Authorization token <*string|"Bearer "*>
+#### Returns JSON Object
+```
+{
+    "success": bool,
+    "data": {
+        "id": int,
+        "integer": int,
+        "created_at": string,
+        "updated_at": string
+    },
+    "message": "success"
+}
+```
+#### **POST** `api/next`
+>Returns the next integer
+>
+**Attributes To Send**
+- Authorization token <*string|"Bearer "*>
+#### Returns JSON Object
+```
+{
+    "success": bool,
+    "data": {
+        "id": int,
+        "integer": int,
+        "created_at": string,
+        "updated_at": string
+    },
+    "message": "success"
+}
+```
+#### **POST** `api/update`
+>Returns the updated integer
+>
+**Attributes To Send**
+- Authorization token <*string|"Bearer "*>
+- updated_integer <*int*>
+#### Returns JSON Object
+```
+{
+    "success": bool,
+    "data": {
+        "id": int,
+        "integer": int,
+        "created_at": string,
+        "updated_at": string
+    },
+    "message": "success"
+}
+```
