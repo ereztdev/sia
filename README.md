@@ -29,7 +29,7 @@ webserver installed there (Apache2/NGINX/etc).
   - Fill in your client-id/secret's for google and github OAuth2 apps, if you don't have the ability to 
     create one feel free to contact me, and I'll send you mine. 
 - Now our environment is set. Let's go ahead and seed our database, run `php artisan migrate`.
-- Also, let's see our first integer (default 1), run `php artisan db:seed --class=IntegerInitSeeder` 
+- Also, let's seed into our DB our first integer (default 1), run `php artisan db:seed --class=IntegerInitSeeder` 
 - Since we are using AES-256 encryption to generate keys for users to access our API, I chose passport as my keymaker. 
 Run `php artisan passport:install` to create the keymakers.
 - Install Node dependencies, run `npm install`.
