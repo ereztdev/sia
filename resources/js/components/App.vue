@@ -42,7 +42,9 @@
                     <div class="card-header">Update Integer</div>
                     <div class="card-body">
                         <div class="input-group">
-                            <input type="number"
+                            <input @keydown="$event.key === 'Enter' ? updateInteger() : false"
+                                   type="number"
+                                   min="1"
                                    class="form-control"
                                    id="updateInteger"
                                    placeholder="Type an integer"
@@ -97,7 +99,6 @@
                 axios.defaults.headers.common = {'Authorization': `Bearer ${accessToken}`}
                 axios.post('/api/current')
                     .then(res => {
-                        console.log(res.data.data.integer);
                         this.currentToken = res.data.data.integer;
                     })
                     .catch(err => console.log(err))
@@ -114,12 +115,11 @@
                     })
             },
             updateInteger() {
-                const updated_integer = $("#updateInteger").val();
-                if (updated_integer.trim() === '' || !Number.isInteger(updated_integer)) {
+                const updated_integer = parseInt($("#updateInteger").val());
+                if (isNaN(updated_integer) || updated_integer < 0) {
                     this.isError = true;
-                    this.alertMessage = `Please insert an integer before updating`
+                    this.alertMessage = `Please insert a positive integer before updating`
                     return  this.animateAlert();
-
                 }
                 this.onCall = true;
                 axios.post('/api/update', {updated_integer})

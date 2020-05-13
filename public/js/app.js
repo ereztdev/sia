@@ -1984,6 +1984,8 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: "App",
   data: function data() {
@@ -2009,7 +2011,6 @@ __webpack_require__.r(__webpack_exports__);
         'Authorization': "Bearer ".concat(accessToken)
       };
       axios.post('/api/current').then(function (res) {
-        console.log(res.data.data.integer);
         _this.currentToken = res.data.data.integer;
       })["catch"](function (err) {
         return console.log(err);
@@ -2030,11 +2031,11 @@ __webpack_require__.r(__webpack_exports__);
     updateInteger: function updateInteger() {
       var _this3 = this;
 
-      var updated_integer = $("#updateInteger").val();
+      var updated_integer = parseInt($("#updateInteger").val());
 
-      if (updated_integer.trim() === '' || !Number.isInteger(updated_integer)) {
+      if (isNaN(updated_integer) || updated_integer < 0) {
         this.isError = true;
-        this.alertMessage = "Please insert an integer before updating";
+        this.alertMessage = "Please insert a positive integer before updating";
         return this.animateAlert();
       }
 
@@ -38453,8 +38454,14 @@ var render = function() {
                   staticClass: "form-control",
                   attrs: {
                     type: "number",
+                    min: "1",
                     id: "updateInteger",
                     placeholder: "Type an integer"
+                  },
+                  on: {
+                    keydown: function($event) {
+                      $event.key === "Enter" ? _vm.updateInteger() : false
+                    }
                   }
                 }),
                 _vm._v(" "),
