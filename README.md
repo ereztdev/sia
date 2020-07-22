@@ -4,11 +4,6 @@
 
 ---
 
-#### Location of deployed application
-## [Live Demo]( http://ec2-18-188-204-237.us-east-2.compute.amazonaws.com/)
-
----
-
 ## Instalation For Local Environment
 - Assuming you will run in a webserver either on windows (XAMPP/WAMPP/etc) or on Linux where you already have a 
 webserver installed there (Apache2/NGINX/etc). 
