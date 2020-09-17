@@ -15,10 +15,23 @@
 
 #app{
     main{
-        background: #1D4350;  /* fallback for old browsers */
-        background: -webkit-linear-gradient(to right, #A43931, #1D4350);  /* Chrome 10-25, Safari 5.1-6 */
-        background: linear-gradient(to right, #A43931, #1D4350); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
-        height: 100vh;
+        //background: #1D4350;  /* fallback for old browsers */
+        //background: -webkit-linear-gradient(to right, #A43931, #1D4350);  /* Chrome 10-25, Safari 5.1-6 */
+        //background: linear-gradient(to right, #A43931, #1D4350); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+        //height: 100vh;
+
     }
 }
+.background--wrapper {
+    &::after{
+        content: '';
+        position: fixed;
+        height: 100vh;
+        width: 100%;
+        z-index: 0;
+        background-image: url('https://res.cloudinary.com/ereztdev/image/upload/v1600367745/podcastIndex/Francesco_Botticini_-_The_Assumption_of_the_Virgin_kfidhg.jpg');
+        background-size: 100% 100%;
+        filter: grayscale(20%) brightness(0.4) blur(8px);
+    }
 
+}
