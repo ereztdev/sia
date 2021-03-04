@@ -1,5 +1,5 @@
 <template>
-    <div class="container">
+    <!--<div class="container">
         <div class="alert text-uppercase copySuccess" :class="isError ? `alert-danger` : `alert-success`" role="alert">
             {{alertMessage}}
         </div>
@@ -73,6 +73,24 @@
                 </div>
             </div>
         </div>
+    </div>-->
+    <div class="container">
+        <div class="row text-center my-3">
+            <div class="input-group mb-3">
+                <input type="text" class="form-control" placeholder="Search For a Podcast" aria-label="Recipient's username" aria-describedby="basic-addon2">
+                <div class="input-group-append">
+                    <button class="btn btn-outline-success" type="button">Button</button>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div v-for="(podcast, index) in feeds">
+               <h1>{{index}}</h1>
+                <h2>{{podcast.author}}</h2>
+                <img @load="checkImage(podcast.image)" class="img-thumbnail" :src="podcast.image">
+            </div>
+        </div>
+
     </div>
 </template>
 
@@ -87,12 +105,15 @@
                 updatePayload: null,
                 onCall: false,
                 alertMessage: '',
-                isError: null
+                isError: null,
+                podcastData:null,
+                feeds:[],
             }
         },
         mounted() {
             this.accessToken = accessToken;
-            this.getCurrentToken()
+            this.podcastData = podcastResponse;
+            this.feeds = this.podcastData.feeds;
         },
         methods: {
             getCurrentToken() {
@@ -152,7 +173,10 @@
                 this.alertMessage = `access token copied successfully`
                 return this.animateAlert();
 
-            }
+            },
+            checkImage(image){
+                console.log(`image loaded: ${image}`);
+            },
         },
     }
 </script>
