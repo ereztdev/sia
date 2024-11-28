@@ -36,8 +36,6 @@ Run `php artisan passport:install` to create the keymakers.
 #### **POST** `api/register`
 > Registers the user via the API
 
-**Attributes To Send**
-
 - name <*string*>
 - email <*string|email*>
 - password <*string*>
@@ -59,7 +57,6 @@ Run `php artisan passport:install` to create the keymakers.
 #### **POST** `api/login`
 > Login the user via the API
 
-**Attributes To Send**
 - email <*string|email*>
 - password <*string*>
 #### Returns JSON Object
@@ -81,7 +78,6 @@ Run `php artisan passport:install` to create the keymakers.
 #### **POST** `api/current`
 >Returns the current integer
 >
-**Attributes To Send**
 - Authorization token <*string|"Bearer "*>
 #### Returns JSON Object
 ```
@@ -99,7 +95,6 @@ Run `php artisan passport:install` to create the keymakers.
 #### **POST** `api/next`
 >Returns the next integer
 >
-**Attributes To Send**
 - Authorization token <*string|"Bearer "*>
 #### Returns JSON Object
 ```
@@ -117,7 +112,6 @@ Run `php artisan passport:install` to create the keymakers.
 #### **POST** `api/update`
 >Returns the updated integer
 >
-**Attributes To Send**
 - Authorization token <*string|"Bearer "*>
 - updated_integer <*int*>
 #### Returns JSON Object
